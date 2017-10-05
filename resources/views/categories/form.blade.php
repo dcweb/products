@@ -31,7 +31,7 @@
                       @endif
 
                       @if($errors->any())
-                        <div class="alert alert-danger">{!! html::ul($errors->all()) !!}</div>
+                        <div class="alert alert-danger">{!! Html::ul($errors->all()) !!}</div>
                       @endif
 
                       <div class="form-group">
