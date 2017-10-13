@@ -80,6 +80,8 @@ CREATE TABLE `products_categories_language` (
   `language_id` int(11) unsigned DEFAULT NULL,
   `sort_id` int(11) DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `url_slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `url_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `admin` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
