@@ -103,7 +103,10 @@ class CategoryController extends Controller {
 	 */
 	public function create()
 	{
-		$oLanguages = DB::connection("project")->table("languages")->select((DB::connection("project")->raw(" '' as title, '' as description")), "id","id as thelanguage_id", "language","country","language_name")->get();
+		$oLanguages = DB::connection("project")
+                            ->table("languages")
+                            ->select((DB::connection("project")
+                                            ->raw(" '' as title, '' as description,'' image ")), "id","id as thelanguage_id", "language","country","language_name")->get();
 
 		// load the create form (app/views/categories/create.blade.php)
 		return View::make('dcmsproducts::categories/form')
@@ -142,13 +145,15 @@ class CategoryController extends Controller {
 			}
 
 			$node = new Category;
-			$node->language_id = Input::get('language_id');
-			$node->title = Input::get('title');
-			$node->url_slug 		= str_slug(Input::get('title'));
-			$node->url_path 		= str_slug(Input::get('title'));
+			$node->language_id   = Input::get('language_id');
+			$node->title         = Input::get('title');
+			$node->description   = Input::get('description');
+			$node->image         = Input::get('image');
+			$node->url_slug      = str_slug(Input::get('title'));
+			$node->url_path      = str_slug(Input::get('title'));
 			$node->save();
 
-			if(is_null($theParent)){
+			if (is_null($theParent)) {
 				$node->makeRoot();
 			} else {
 				$node->makeChildOf($theParent);
@@ -178,7 +183,7 @@ class CategoryController extends Controller {
 			LEFT JOIN languages on products_categories_language.language_id = languages.id
 			WHERE  languages.id is not null AND  products_categories_language.id= ?
 			UNION
-			SELECT languages.id , language, country, language_name, \'\' , \'\' , languages.id , \'\' , \'\' , \'\' , \'\' , \'\' , \'\' , \'\' , \'\' , \'\', \'\' , \'\' , \'\'
+			SELECT languages.id , language, country, language_name, \'\' , \'\' , languages.id , \'\' ,\'\' ,\'\' , \'\' , \'\' , \'\' , \'\' , \'\' , \'\' , \'\' , \'\', \'\' , \'\' , \'\'
 			FROM languages
 			WHERE id NOT IN (SELECT language_id FROM products_categories_language WHERE id = ?) ORDER BY 1
 			', array($id,$id));
@@ -228,10 +233,12 @@ class CategoryController extends Controller {
 		} else {
 
 				$node = Category::find($id);
-				$node->language_id = Input::get('language_id');
-				$node->title = Input::get('title');
-				$node->url_slug 		= str_slug(Input::get('title'));
-				$node->url_path 		= str_slug(Input::get('title'));
+				$node->language_id  = Input::get('language_id');
+				$node->title        = Input::get('title');
+    			$node->description  = Input::get('description');
+    			$node->image        = Input::get('image');
+				$node->url_slug 	= str_slug(Input::get('title'));
+				$node->url_path 	= str_slug(Input::get('title'));
 				$node->save();
 
 				$setRoot = false;

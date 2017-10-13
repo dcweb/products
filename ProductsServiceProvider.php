@@ -47,14 +47,14 @@ class ProductsServiceprovider extends ServiceProvider{
 
  public function register()
  {
-   $this->registerArticles();
+   //$this->registerArticles();
  }
 
  private function registerArticles()
  {
-    $this->app->bind('products',function($app){
-     return new Products($app);
-   });
+     $this->app->bind('products',function($app){
+            return new Products($app);
+        });
  }
 
 }

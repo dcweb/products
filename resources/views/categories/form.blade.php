@@ -64,6 +64,22 @@
                       	{!! Form::text('title', (isset($category)?$category->title:''), array('class' => 'form-control')) !!}
                       </div>
 
+                    <div class="form-group">
+                      {!! Form::label('description', 'Description') !!}
+                      {!! Form::textarea('description',  (isset($category)?$category->description:''), array('class' => 'form-control')) !!}
+                    </div>
+
+                      <div class="form-group">
+                       {!! Form::label('image', 'Image') !!}
+
+                       <div class="input-group">
+                           {!! Form::text('image', Input::old('image'), array('class' => 'form-control')) !!}
+                         <span class="input-group-btn">
+                           {!! Form::button('Browse Server', array('class' => 'btn btn-primary browse-server', 'id'=>'browse_image')) !!}
+                         </span>
+                       </div>
+                     </div>
+
 					{!! Form::submit('Save', array('class' => 'btn btn-primary')) !!}
                         <a href="{!! URL::previous() !!}" class="btn btn-default">Cancel</a>
             	    {!! Form::close() !!}
@@ -73,8 +89,24 @@
       </div>
     </div>
 
+<script type="text/javascript" src="{!! asset('/packages/dcms/core/ckeditor/ckeditor.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/packages/dcms/core/ckeditor/adapters/jquery.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/packages/dcms/core/ckfinder/ckfinder.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/packages/dcms/core/ckfinder/ckbrowser.js') !!}"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
+
+	//CKFinder for CKEditor
+	CKFinder.setupCKEditor( null, '/packages/dcms/core/ckfinder/' );
+
+	//CKEditor
+	$("textarea[id='description']").ckeditor();
+
+    //CKFinder
+    $(".browse-server").click(function() {
+        BrowseServer( 'Images:/', 'thumbnail' );
+    })
 
   function setParentIDDropdown()
   {
@@ -155,5 +187,5 @@ $(document).ready(function() {
 
 </script>
 
-<script type="text/javascript" src="{!! asset('packages/dcms/core/assets/js/bootstrap.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('packages/dcms/core/js/bootstrap.min.js') !!}"></script>
 @stop
