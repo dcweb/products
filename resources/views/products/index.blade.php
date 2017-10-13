@@ -77,8 +77,8 @@
     });
     </script>
 
-    <script type="text/javascript" src="{!! asset('packages/dcms/core/assets/js/bootstrap.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('packages/dcms/core/assets/js/bootbox.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('/packages/dcms/core/js/bootstrap.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('/packages/dcms/core/js/bootbox.min.js') !!}"></script>
 
 	      	</div>
       	</div>

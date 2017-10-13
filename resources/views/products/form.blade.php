@@ -222,17 +222,17 @@
 
 @section("script")
 
-<script type="text/javascript" src="{!! asset('/packages/dcms/core/assets/js/bootstrap.min.js') !!}"></script>
-<script type="text/javascript" src="{!! asset('/packages/dcms/core/assets/js/jquery-ui-autocomplete.min.js') !!}"></script>
-<link rel="stylesheet" type="text/css" href="{!! asset('/packages/dcms/core/assets/css/jquery-ui-autocomplete.css') !!}">
+<script type="text/javascript" src="{!! asset('/packages/dcms/core/js/bootstrap.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('/packages/dcms/core/js/jquery-ui-autocomplete.min.js') !!}"></script>
+<link rel="stylesheet" type="text/css" href="{!! asset('/packages/dcms/core/css/jquery-ui-autocomplete.css') !!}">
 
 <script type="text/javascript" src="{!! asset('/packages/dcms/core/ckeditor/ckeditor.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('/packages/dcms/core/ckeditor/adapters/jquery.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('/packages/dcms/core/ckfinder/ckfinder.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('/packages/dcms/core/ckfinder/ckbrowser.js') !!}"></script>
 
-<link rel="stylesheet" href="{!! asset('/packages/dcms/core/assets/js/color-picker/palette-color-picker.css') !!}">
-<script src="{!! asset('packages/dcms/core/assets/js/color-picker/palette-color-picker.js') !!}"></script>
+<link rel="stylesheet" href="{!! asset('/packages/dcms/core/js/color-picker/palette-color-picker.css') !!}">
+<script src="{!! asset('/packages/dcms/core/js/color-picker/palette-color-picker.js') !!}"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
