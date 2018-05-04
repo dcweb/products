@@ -105,7 +105,7 @@ $(document).ready(function() {
 
     //CKFinder
     $(".browse-server").click(function() {
-        BrowseServer( 'Images:/', 'thumbnail' );
+        BrowseServer( 'Images:/', 'image' );
     })
 
   function setParentIDDropdown()
