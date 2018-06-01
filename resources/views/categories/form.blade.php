@@ -64,10 +64,15 @@
                       	{!! Form::text('title', (isset($category)?$category->title:''), array('class' => 'form-control')) !!}
                       </div>
 
-                    <div class="form-group">
-                      {!! Form::label('description', 'Description') !!}
-                      {!! Form::textarea('description',  (isset($category)?$category->description:''), array('class' => 'form-control')) !!}
-                    </div>
+                      <div class="form-group">
+                        {!! Form::label('description_short', 'Short Description') !!}
+                        {!! Form::textarea('description_short',  (isset($category)?$category->description_short:''), array('class' => 'form-control ckeditor')) !!}
+                      </div>
+
+                      <div class="form-group">
+                        {!! Form::label('description', 'Description') !!}
+                        {!! Form::textarea('description',  (isset($category)?$category->description:''), array('class' => 'form-control ckeditor')) !!}
+                      </div>
 
                       <div class="form-group">
                        {!! Form::label('image', 'Image') !!}
@@ -100,8 +105,8 @@ $(document).ready(function() {
 	//CKFinder for CKEditor
 	CKFinder.setupCKEditor( null, '/packages/dcms/core/ckfinder/' );
 
-	//CKEditor
-	$("textarea[id='description']").ckeditor();
+  	//CKEditor
+  	$("textarea.ckeditor").ckeditor();
 
     //CKFinder
     $(".browse-server").click(function() {
@@ -127,13 +132,9 @@ $(document).ready(function() {
     after   =  $(this).attr('class').indexOf(' depth-');
     a.push($(this).attr('class').substr(before,(after-before)));
   })
-  //console.log(a);
 
   u = jQuery.unique(a);
   u = jQuery.unique(u); //same again, since it seems to have got some issues
-  //console.log(u);
-
-  console.log(u);
 
   jQuery.each(u,function(theindex){
     sort = 0;

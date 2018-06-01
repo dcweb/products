@@ -15,6 +15,7 @@ Route::group(['middleware' => ['web']], function () {
     			Route::group( array("prefix" => "categories","as"=>"categories."), function() {
     				Route::get("{id}/copy", array("as"=>"{id}.copy", "uses" => "CategoryController@copy"));
     				Route::any("api/table", array("as"=>"api.table", "uses" => "CategoryController@getDatatable"));
+    				Route::any("rebuildTree", array("as"=>"rebuildTree", "uses" => "CategoryController@rebuildTree"));
     			});
     			Route::resource("categories","CategoryController");
 

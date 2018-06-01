@@ -57,8 +57,8 @@
                         </div>
 
                         <div class="form-group">
-                          {!! Form::label('information_category_id[' . $key . ']', 'Category') !!}
-                          {!! isset($categoryOptionValues[$information->language_id])? Form::select('information_category_id[' . $key . ']', $categoryOptionValues[$information->language_id], (Input::old('information_category_id[' . $key . ']') ? Input::old('information_category_id[' . $key . ']') : $information->product_category_id), array('class' => 'form-control')):'' !!}
+                          {!! Form::label('product_category_id[' . $key . ']', 'Category') !!}
+                          {!! isset($categoryOptionValues[$information->language_id])? Form::select('product_category_id[' . $key . ']', $categoryOptionValues[$information->language_id], (Input::old('product_category_id[' . $key . ']') ? Input::old('product_category_id[' . $key . ']') : $information->product_category_id), array('class' => 'form-control')):'' !!}
                         </div>
 
                         <div class="form-group">
